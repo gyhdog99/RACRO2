@@ -1,7 +1,11 @@
 
-# RACRO: Perceptual Decoupling for Scalable Multi-modal Reasoning via Reward-Optimized Captioning
+# RACRO
 
-This repository provides training, inference, and evaluation instructions for RACRO.
+This repository provides training, inference, and evaluation instructions for the paper:
+
+> Perceptual Decoupling for Scalable Multi-modal Reasoning via Reward-Optimized Captioning <br>
+> [Yunhao Gou](https://gyhdog99.github.io/), [Kai Chen](https://kaichen1998.github.io/), [Zhili Liu](https://scholar.google.com/citations?user=FdR09jsAAAAJ), [Lanqing Hong](https://scholar.google.com/citations?hl=zh-CN&user=2p7x6OUAAAAJ&view_op=list_works&sortby=pubdate), [Xin Jin](https://scholar.google.com.hk/citations?user=EwOxofEAAAAJ&hl=zh-CN), [Zhenguo Li](https://scholar.google.com/citations?user=XboZC1AAAAAJ&hl=zh-CN), [James T. Kwok](https://www.cse.ust.hk/~jamesk/) , [Yu Zhang](https://yuzhanghk.github.io/)
+
 
 ---
 
@@ -132,3 +136,15 @@ python VLMEvalKit/run.py --data ${DATASET} \
 ## 🤝 Acknowledgements
 - [verl: Volcano Engine Reinforcement Learning for LLMs](https://github.com/volcengine/verl)
 - [TIGER Lab ViRL39K](https://huggingface.co/datasets/TIGER-Lab/ViRL39K)
+
+
+## Citation
+
+```bibtex
+@article{gou2025perceptual,
+  author    = {Gou, Yunhao and Chen, Kai and Liu, Zhili and Hong, Lanqing and Jin, Xin and Li, Zhenguo and Kwok, James T. and Zhang, Yu}, 
+  title     = {Perceptual Decoupling for Scalable Multi-modal Reasoning via Reward-Optimized Captioning},
+  journal   = {arXiv preprint arXiv:2506.04559},
+  year      = {2025},
+}
+```
