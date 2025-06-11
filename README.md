@@ -1,5 +1,14 @@
 
-# RACRO
+<div align="center">
+
+
+# Perceptual Decoupling for Scalable Multi-modal Reasoning via Reward-Optimized Captioning
+
+
+📄 [Paper](https://arxiv.org/abs/2506.04559) | 💻 [Github](https://github.com/gyhdog99/RACRO2/) | 🤗 [RACRO-Models](https://huggingface.co/collections/KaiChen1998/racro-6848ec8c65b3a0bf33d0fbdb) 
+
+</div>
+
 
 This repository provides training, inference, and evaluation instructions for the paper:
 
@@ -7,7 +16,30 @@ This repository provides training, inference, and evaluation instructions for th
 > [Yunhao Gou](https://gyhdog99.github.io/), [Kai Chen](https://kaichen1998.github.io/), [Zhili Liu](https://scholar.google.com/citations?user=FdR09jsAAAAJ), [Lanqing Hong](https://scholar.google.com/citations?hl=zh-CN&user=2p7x6OUAAAAJ&view_op=list_works&sortby=pubdate), [Xin Jin](https://scholar.google.com.hk/citations?user=EwOxofEAAAAJ&hl=zh-CN), [Zhenguo Li](https://scholar.google.com/citations?user=XboZC1AAAAAJ&hl=zh-CN), [James T. Kwok](https://www.cse.ust.hk/~jamesk/) , [Yu Zhang](https://yuzhanghk.github.io/)
 
 
----
+## ⚡ News
+
+## 📖 Introduction
+This paper introduces **Reasoning-Aligned Perceptual Decoupling via Caption Reward Optimization (RACRO)**, a novel framework that enables scalable and modular multimodal reasoning by aligning visual perception with a powerful text-only reasoner. RACRO addresses the key challenge of generating image captions that are both faithful and sufficiently informative for downstream reasoning. It leverages a reasoning-guided reinforcement learning strategy to train the visual extractor, using reward signals derived from the performance of a fixed, high-capacity text-only LLM. This decoupled design avoids costly retraining of vision-language alignments and allows seamless plug-and-play upgrades to more advanced reasoners. Experiments on multimodal math and science benchmarks show that RACRO achieves **state-of-the-art** performance among open models.
+
+<div align="center" style="display: flex; justify-content: center; gap: 20px;">
+  <img src="assets/images/method.png" width="60%" />
+  <img src="assets/images/teaser.png" width="40%" />
+</div>
+
+## 📈 Results
+
+<div align="center">
+  <img src="assets/images/results.png" width=100%></img>
+</div>
+
+## 🎯 Models
+
+| **Model**                          | **Huggingface** |  **Base Model** |
+|-----------------------------------|------------------|------------------|
+| RRACRO-3B-CRO | TODO |  Qwen2.5-VL-3B-Instruct |
+| RACRO-3B-CRO-GRPO | TODO | Qwen2.5-VL-3B-Instruct |
+| RRACRO-7B-CRO | https://huggingface.co/KaiChen1998/RACRO-7B-CRO |  Qwen2.5-VL-7B-Instruct |
+| RACRO-7B-CRO-GRPO | https://huggingface.co/KaiChen1998/RACRO-7B-CRO-GRPO | Qwen2.5-VL-7B-Instruct |
 
 ## 🔧 Installation
 
