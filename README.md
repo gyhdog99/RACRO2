@@ -22,8 +22,8 @@ This repository provides training, inference, and evaluation instructions for th
 This paper introduces **Reasoning-Aligned Perceptual Decoupling via Caption Reward Optimization (RACRO)**, a novel framework that enables scalable and modular multimodal reasoning by aligning visual perception with a powerful text-only reasoner. RACRO addresses the key challenge of generating image captions that are both faithful and sufficiently informative for downstream reasoning. It leverages a reasoning-guided reinforcement learning strategy to train the visual extractor, using reward signals derived from the performance of a fixed, high-capacity text-only LLM. This decoupled design avoids costly retraining of vision-language alignments and allows seamless plug-and-play upgrades to more advanced reasoners. Experiments on multimodal math and science benchmarks show that RACRO achieves **state-of-the-art** performance among open models.
 
 <div align="center" style="display: flex; justify-content: center; gap: 20px;">
-  <img src="assets/images/method.png" width="60%" />
-  <img src="assets/images/teaser.png" width="40%" />
+  <img src="assets/images/method.png" width="50%" />
+  <img src="assets/images/teaser.png" width="30%" />
 </div>
 
 ## 📈 Results
