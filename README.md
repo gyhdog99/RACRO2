@@ -113,8 +113,6 @@ bash verl-main/examples/grpo_trainer/captioner3b_7b.sh
 bash verl-main/scripts/convert2hf.sh
 ```
 
----
-
 ## 🔍 Inference and Evaluation
 
 0. Set environment variables:
