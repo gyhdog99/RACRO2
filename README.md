@@ -5,7 +5,7 @@
 # Perceptual Decoupling for Scalable Multi-modal Reasoning via Reward-Optimized Captioning
 
 
-📄 [Paper](https://arxiv.org/abs/2506.04559) | 💻 [Github](https://github.com/gyhdog99/RACRO2/) | 🤗 [RACRO-Models](https://huggingface.co/collections/KaiChen1998/racro-6848ec8c65b3a0bf33d0fbdb) 
+📄 [Paper](https://arxiv.org/abs/2506.04559) | 💻 [Github](https://github.com/gyhdog99/RACRO2/) | 🤗 [RACRO-Models](https://huggingface.co/collections/KaiChen1998/racro-6848ec8c65b3a0bf33d0fbdb) | 🤗 [RACRO-Demo]()
 
 </div>
 
@@ -13,10 +13,12 @@
 This repository provides training, inference, and evaluation instructions for the paper:
 
 > Perceptual Decoupling for Scalable Multi-modal Reasoning via Reward-Optimized Captioning <br>
-> [Yunhao Gou](https://gyhdog99.github.io/), [Kai Chen](https://kaichen1998.github.io/), [Zhili Liu](https://scholar.google.com/citations?user=FdR09jsAAAAJ), [Lanqing Hong](https://scholar.google.com/citations?hl=zh-CN&user=2p7x6OUAAAAJ&view_op=list_works&sortby=pubdate), [Xin Jin](https://scholar.google.com.hk/citations?user=EwOxofEAAAAJ&hl=zh-CN), [Zhenguo Li](https://scholar.google.com/citations?user=XboZC1AAAAAJ&hl=zh-CN), [James T. Kwok](https://www.cse.ust.hk/~jamesk/) , [Yu Zhang](https://yuzhanghk.github.io/)
+> [Yunhao Gou*](https://gyhdog99.github.io/), [Kai Chen*](https://kaichen1998.github.io/), [Zhili Liu*](https://scholar.google.com/citations?user=FdR09jsAAAAJ), [Lanqing Hong](https://scholar.google.com/citations?hl=zh-CN&user=2p7x6OUAAAAJ&view_op=list_works&sortby=pubdate), [Xin Jin](https://scholar.google.com.hk/citations?user=EwOxofEAAAAJ&hl=zh-CN), [Zhenguo Li](https://scholar.google.com/citations?user=XboZC1AAAAAJ&hl=zh-CN), [James T. Kwok](https://www.cse.ust.hk/~jamesk/) , [Yu Zhang](https://yuzhanghk.github.io/)
 
 
 ## ⚡ News
+
+- **[2025-06]** 🔥 We have released the [RACRO-7B-CRO](https://huggingface.co/KaiChen1998/RACRO-7B-CRO) and [RACRO-7B-CRO-GRPO](https://huggingface.co/KaiChen1998/RACRO-7B-CRO-GRPO) checkpoints on HuggingFace!
 
 ## 📖 Introduction
 This paper introduces **Reasoning-Aligned Perceptual Decoupling via Caption Reward Optimization (RACRO)**, a novel framework that enables scalable and modular multimodal reasoning by aligning visual perception with a powerful text-only reasoner. RACRO addresses the key challenge of generating image captions that are both faithful and sufficiently informative for downstream reasoning. It leverages a reasoning-guided reinforcement learning strategy to train the visual extractor, using reward signals derived from the performance of a fixed, high-capacity text-only LLM. This decoupled design avoids costly retraining of vision-language alignments and allows seamless plug-and-play upgrades to more advanced reasoners. Experiments on multimodal math and science benchmarks show that RACRO achieves **state-of-the-art** performance among open models.
@@ -37,14 +39,20 @@ This paper introduces **Reasoning-Aligned Perceptual Decoupling via Caption Rewa
   <img src="assets/images/results.png" width=100%></img>
 </div>
 
-## 🎯 Models
+## Contents
 
-| **Model**                          | **Huggingface** |  **Base Model** |
-|-----------------------------------|------------------|------------------|
-| RRACRO-3B-CRO | TODO |  Qwen2.5-VL-3B-Instruct |
-| RACRO-3B-CRO-GRPO | TODO | Qwen2.5-VL-3B-Instruct |
-| RRACRO-7B-CRO | https://huggingface.co/KaiChen1998/RACRO-7B-CRO |  Qwen2.5-VL-7B-Instruct |
-| RACRO-7B-CRO-GRPO | https://huggingface.co/KaiChen1998/RACRO-7B-CRO-GRPO | Qwen2.5-VL-7B-Instruct |
+- 
+
+
+
+## 🎯 Model Zoos
+
+| **Model**                          | **Dataset**                          | **🤗 Huggingface** |  **Base Model** |
+|:---------------------------------:|:---------------------------------:|:----------------:|:----------------:|
+| RACRO-3B-CRO | [ViRL39K](https://huggingface.co/datasets/TIGER-Lab/ViRL39K) | TBD |  [Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct) |
+| RACRO-3B-CRO-GRPO | [ViRL39K](https://huggingface.co/datasets/TIGER-Lab/ViRL39K) | TBD | [Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct) |
+| RACRO-7B-CRO | [ViRL39K](https://huggingface.co/datasets/TIGER-Lab/ViRL39K) | [[Link]](https://huggingface.co/KaiChen1998/RACRO-7B-CRO) |  [Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct) |
+| RACRO-7B-CRO-GRPO | [ViRL39K](https://huggingface.co/datasets/TIGER-Lab/ViRL39K) | [[Link]](https://huggingface.co/KaiChen1998/RACRO-7B-CRO-GRPO) | [Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct) |
 
 ## 🔧 Installation
 
@@ -68,10 +76,13 @@ cd ../VLMEvalKit
 pip install -e .
 ```
 
----
+## 🔥 Quick Start with vLLM
 
-## 📦 Prepare Training Data
+TBD
 
+## 🏋️‍♂️ Training
+
+1. Prepare training data <br/>
 Download [ViRL39K dataset](https://huggingface.co/datasets/TIGER-Lab/ViRL39K) and preprocess it:
 
 ```bash
@@ -84,19 +95,14 @@ python verl-main/examples/data_preprocess/virl39k.py \
   --tgt-parquet /cache/data/huggingface_datasets/virl39k_no_deepscaler_caption.parquet
 ```
 
----
-
-## 🏋️‍♂️ Training
-
-Train Qwen2.5-VL-3B using R1-Distilled-7B as the reasoner:
+2. Launch training<br/>
+We provide an example which trains [Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct) using [Deepseek-R1-Distilled-7B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B) as the reasoner:
 
 ```bash
 bash verl-main/examples/grpo_trainer/captioner3b_7b.sh
 ```
 
----
-
-## 🔄 Convert Checkpoints to HuggingFace Format
+3. Convert checkpoints to HuggingFace format
 
 ```bash
 bash verl-main/scripts/convert2hf.sh
@@ -115,7 +121,7 @@ MLLM_NAME=Qwen2.5-VL-3B-Instruct
 LLM_NAME=DeepSeek-R1-Distill-Qwen-7B
 ```
 
-### 1. Generate Tentative QA Response
+1. Generate Tentative QA Response
 
 ```bash
 python VLMEvalKit/run.py --data ${DATASET} \
@@ -126,7 +132,7 @@ python VLMEvalKit/run.py --data ${DATASET} \
   --suffix _model_${MLLM_NAME}_prompt_qa_cot
 ```
 
-### 2. Generate Query-Conditioned Captions
+2. Generate Query-Conditioned Captions
 
 ```bash
 python VLMEvalKit/run.py --data ${DATASET} \ 
@@ -137,7 +143,7 @@ python VLMEvalKit/run.py --data ${DATASET} \
   --suffix _model_${MLLM_NAME}_prompt_query_cond_3
 ```
 
-### 3. LLM Reasoning
+3. LLM Reasoning
 
 ```bash
 QA_FILE=VLMEvalKit/outputs/MLLM/MLLM_${DATASET}_model_${MLLM_NAME}_prompt_qa_cot.csv
@@ -152,27 +158,11 @@ python VLMEvalKit/run.py --data ${DATASET} \
   --suffix _model_${LLM_NAME}_cap_qa_${MLLM_NAME}_prompt_joint
 ```
 
----
-
-## 📁 Directory Structure
-
-```
-.
-├── verl-main/
-│   ├── examples/
-│   ├── scripts/
-│   └── ...
-└── VLMEvalKit/
-    ├── outputs/
-    └── ...
-
-```
-
-
 
 ## 🤝 Acknowledgements
 - [verl: Volcano Engine Reinforcement Learning for LLMs](https://github.com/volcengine/verl)
 - [TIGER Lab ViRL39K](https://huggingface.co/datasets/TIGER-Lab/ViRL39K)
+- [VLMEvalKit](https://github.com/open-compass/VLMEvalKit)
 
 
 ## Citation
