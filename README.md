@@ -51,12 +51,12 @@ This paper introduces **Reasoning-Aligned Perceptual Decoupling via Caption Rewa
 
 ## 🎯 Model Zoos
 
-| **Model**                          | **Dataset**                          | **🤗 Huggingface** |  **Base Model** |
-|:---------------------------------:|:---------------------------------:|:----------------:|:----------------:|
-| RACRO-3B-CRO | [ViRL39K](https://huggingface.co/datasets/TIGER-Lab/ViRL39K) | TBD |  [Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct) |
-| RACRO-3B-CRO-GRPO | [ViRL39K](https://huggingface.co/datasets/TIGER-Lab/ViRL39K) | TBD | [Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct) |
-| RACRO-7B-CRO | [ViRL39K](https://huggingface.co/datasets/TIGER-Lab/ViRL39K) | [[Link]](https://huggingface.co/KaiChen1998/RACRO-7B-CRO) |  [Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct) |
-| RACRO-7B-CRO-GRPO | [ViRL39K](https://huggingface.co/datasets/TIGER-Lab/ViRL39K) | [[Link]](https://huggingface.co/KaiChen1998/RACRO-7B-CRO-GRPO) | [Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct) |
+| **Model**                          | **Dataset**                          | **🤗 Huggingface** |  **Base Model** |  **Reasoner** |
+|:---------------------------------:|:---------------------------------:|:----------------:|:----------------:|:----------------:|
+| RACRO-3B-CRO | [ViRL39K](https://huggingface.co/datasets/TIGER-Lab/ViRL39K) | TBD |  [Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct) |  [DS-R1-Distilled-7B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B) |
+| RACRO-3B-CRO-GRPO | [ViRL39K](https://huggingface.co/datasets/TIGER-Lab/ViRL39K) | TBD | [Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct) |  [DS-R1-Distilled-7B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B) |
+| RACRO-7B-CRO | [ViRL39K](https://huggingface.co/datasets/TIGER-Lab/ViRL39K) | [[Link]](https://huggingface.co/KaiChen1998/RACRO-7B-CRO) |  [Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct) |  [DS-R1-Distilled-7B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B) |
+| RACRO-7B-CRO-GRPO | [ViRL39K](https://huggingface.co/datasets/TIGER-Lab/ViRL39K) | [[Link]](https://huggingface.co/KaiChen1998/RACRO-7B-CRO-GRPO) | [Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct) |  [DS-R1-Distilled-7B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B) |
 
 ## 🔧 Installation
 
@@ -82,7 +82,10 @@ pip install -e .
 
 ## 🔥 Quick Start with vLLM
 
+```python
 TBD
+```
+
 
 ## 🏋️‍♂️ Training
 
