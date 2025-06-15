@@ -39,7 +39,7 @@ This paper introduces **Reasoning-Aligned Perceptual Decoupling via Caption Rewa
   <img src="assets/images/results.png" width=100%></img>
 </div>
 
-## Contents
+## 📦 Contents
 
 - [Model Zoos](#-model-zoos)
 - [Installation](#-installation)
@@ -83,7 +83,94 @@ pip install -e .
 ## 🔥 Quick Start with vLLM
 
 ```python
-TBD
+from transformers import AutoProcessor, AutoTokenizer
+from vllm import LLM, SamplingParams
+from qwen_vl_utils import process_vision_info
+
+########################
+# === Configuration ===
+########################
+IMAGE_PATH = "./assets/images/demo_example.jpg"
+QUESTION = "When the canister is momentarily stopped by the spring, by what distance $d$ is the spring compressed?"
+
+MLLM_MODEL_PATH = "KaiChen1998/RACRO-7B-CRO"
+LLM_MODEL_PATH = "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B" # feel free to use more advanced reasoners!
+
+########################
+# === Prompts ===
+########################
+SYSTEM_PROMPT_CAP = "You are given an image and a relevant question. Based on the query, please describe the image in details. Do not try to answer the question."
+SYSTEM_PROMPT_LLM = "You are a helpful assistant."
+
+CAPTION_PROMPT = "Question: {}\nPlease describe the image. DO NOT try to answer the question!"
+LLM_PROMPT = """In the following text, you will receive a detailed caption of an image and a relevant question. In addition, you will be provided with a tentative model response. You goal is to answer the question using these information.
+
+### The detailed caption of the provided image: {}
+
+### Note that the caption might contain incorrect solutions, do not be misguided by them.
+
+### A problem to be solved: {}
+
+### A tentative model response: {}
+
+### Note that the above tentative response might be inaccurate (due to calculation errors, incorrect logic/reasoning and so on), under such a case, please ignore it and give your own solutions. However, if you do not have enough evidence to show it is wrong, please output the tentative response."""
+
+########################
+# === Initialize Models ===
+########################
+processor = AutoProcessor.from_pretrained(MLLM_MODEL_PATH)
+tokenizer = AutoTokenizer.from_pretrained(LLM_MODEL_PATH)
+
+mllm = LLM(model=MLLM_MODEL_PATH, tensor_parallel_size=1, gpu_memory_utilization=0.8,
+           device='cuda:0', dtype="bfloat16", limit_mm_per_prompt={"image": 1})
+
+llm = LLM(model=LLM_MODEL_PATH, tensor_parallel_size=1, gpu_memory_utilization=0.8,
+          device='cuda:1', dtype="bfloat16")
+
+mllm_sampling = SamplingParams(temperature=0, max_tokens=8192)
+llm_sampling = SamplingParams(temperature=0.6, top_p=0.95, max_tokens=8192)
+
+########################
+# === Build Prompts ===
+########################
+def build_messages(image_path, question):
+    cap_msgs = [
+        {"role": "system", "content": SYSTEM_PROMPT_CAP},
+        {"role": "user", "content": [{"type": "image", "image": image_path}, {"type": "text", "text": CAPTION_PROMPT.format(question)}]}
+    ]
+    qa_msgs = [
+        {"role": "user", "content": [{"type": "image", "image": image_path}, {"type": "text", "text": question + " Please think step by step. The final answer MUST BE put in \\boxed{}."}]}
+    ]
+    return cap_msgs, qa_msgs
+
+# === Run Captioning and QA ===
+def run_mllm(image_tensor, cap_prompt, qa_prompt):
+    cap_output = mllm.generate([{"multi_modal_data": {"image": image_tensor}, "prompt": cap_prompt[0]}], sampling_params=mllm_sampling)
+    qa_output = mllm.generate([{"multi_modal_data": {"image": image_tensor}, "prompt": qa_prompt[0]}], sampling_params=mllm_sampling)
+    return cap_output[0].outputs[0].text, qa_output[0].outputs[0].text
+
+# === Final Reasoning Step ===
+def run_llm_reasoning(caption, question, answer):
+    messages = [
+        {"role": "system", "content": SYSTEM_PROMPT_LLM},
+        {"role": "user", "content": LLM_PROMPT.format(caption, question, answer)}
+    ]
+    prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    output = llm.generate([{"prompt": prompt}], sampling_params=llm_sampling)
+    return output[0].outputs[0].text
+
+########################
+# === Pipeline ===
+########################
+cap_msgs, qa_msgs = build_messages(IMAGE_PATH, QUESTION)
+cap_prompt = processor.apply_chat_template([cap_msgs], tokenize=False, add_generation_prompt=True)
+qa_prompt = processor.apply_chat_template([qa_msgs], tokenize=False, add_generation_prompt=True)
+
+image_tensor, _ = process_vision_info(cap_msgs)
+caption_text, tentative_answer = run_mllm(image_tensor, cap_prompt, qa_prompt)
+final_answer = run_llm_reasoning(caption_text, QUESTION, tentative_answer)
+
+print("Final Answer:\n", final_answer)
 ```
 
 
