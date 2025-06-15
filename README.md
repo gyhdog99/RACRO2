@@ -93,7 +93,7 @@ from qwen_vl_utils import process_vision_info
 IMAGE_PATH = "./assets/images/demo_example.jpg"
 QUESTION = "When the canister is momentarily stopped by the spring, by what distance $d$ is the spring compressed?"
 
-MLLM_MODEL_PATH = "KaiChen1998/RACRO-7B-CRO"
+MLLM_MODEL_PATH = "KaiChen1998/RACRO-7B-CRO-GRPO"
 LLM_MODEL_PATH = "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B" # feel free to use more advanced reasoners!
 
 ########################
