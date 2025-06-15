@@ -41,8 +41,12 @@ This paper introduces **Reasoning-Aligned Perceptual Decoupling via Caption Rewa
 
 ## Contents
 
-- 
-
+- [Model Zoos](#-model-zoos)
+- [Installation](#-installation)
+- [Quick Start with vLLM](#-quick-start-with-vllm)
+- [Training](#️️-training)
+- [Inference and Evaluation](#-inference-and-evaluation)
+- [Citation](#citation)
 
 
 ## 🎯 Model Zoos
@@ -82,8 +86,7 @@ TBD
 
 ## 🏋️‍♂️ Training
 
-1. Prepare training data <br/>
-Download [ViRL39K dataset](https://huggingface.co/datasets/TIGER-Lab/ViRL39K) and preprocess it:
+1. Prepare training data. Download [ViRL39K dataset](https://huggingface.co/datasets/TIGER-Lab/ViRL39K) and preprocess it:
 
 ```bash
 python verl-main/examples/data_preprocess/virl39k_pre.py \
@@ -95,8 +98,7 @@ python verl-main/examples/data_preprocess/virl39k.py \
   --tgt-parquet /cache/data/huggingface_datasets/virl39k_no_deepscaler_caption.parquet
 ```
 
-2. Launch training<br/>
-We provide an example which trains [Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct) using [Deepseek-R1-Distilled-7B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B) as the reasoner:
+2. Launch training. We provide an example which trains [Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct) using [Deepseek-R1-Distilled-7B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B) as the reasoner:
 
 ```bash
 bash verl-main/examples/grpo_trainer/captioner3b_7b.sh
@@ -112,7 +114,7 @@ bash verl-main/scripts/convert2hf.sh
 
 ## 🔍 Inference and Evaluation
 
-Set environment variables:
+0. Set environment variables:
 
 ```bash
 DATASET=MathVista_MINI
