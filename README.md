@@ -5,7 +5,7 @@
 # Perceptual Decoupling for Scalable Multi-modal Reasoning via Reward-Optimized Captioning
 
 
-📄 [Paper](https://arxiv.org/abs/2506.04559) | 💻 [Github](https://github.com/gyhdog99/RACRO2/) | 🤗 [RACRO-Models](https://huggingface.co/collections/KaiChen1998/racro-6848ec8c65b3a0bf33d0fbdb) | 🤗 [RACRO-Demo]()
+📄 [Paper](https://arxiv.org/abs/2506.04559) | 💻 [Github](https://github.com/gyhdog99/RACRO2/) | 🤗 [RACRO-Models](https://huggingface.co/collections/KaiChen1998/racro-6848ec8c65b3a0bf33d0fbdb) | 🤗 [RACRO-Demo](https://huggingface.co/spaces/Emova-ollm/RACRO-demo)
 
 </div>
 
