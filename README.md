@@ -18,6 +18,7 @@ This repository provides training, inference, and evaluation instructions for th
 
 ## ⚡ News
 
+- **[2025-06]** 🔥 We have deployed a [RACRO live demo](https://huggingface.co/spaces/Emova-ollm/RACRO-demo) on HuggingFace. Welcome to try!
 - **[2025-06]** 🔥 We have released the [RACRO-7B-CRO](https://huggingface.co/KaiChen1998/RACRO-7B-CRO) and [RACRO-7B-CRO-GRPO](https://huggingface.co/KaiChen1998/RACRO-7B-CRO-GRPO) checkpoints on HuggingFace!
 
 ## 📖 Introduction
