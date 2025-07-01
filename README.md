@@ -13,7 +13,8 @@
 This repository provides training, inference, and evaluation instructions for the paper:
 
 > Perceptual Decoupling for Scalable Multi-modal Reasoning via Reward-Optimized Captioning <br>
-> [Yunhao Gou*](https://gyhdog99.github.io/), [Kai Chen*](https://kaichen1998.github.io/), [Zhili Liu*](https://scholar.google.com/citations?user=FdR09jsAAAAJ), [Lanqing Hong](https://scholar.google.com/citations?hl=zh-CN&user=2p7x6OUAAAAJ&view_op=list_works&sortby=pubdate), [Xin Jin](https://scholar.google.com.hk/citations?user=EwOxofEAAAAJ&hl=zh-CN), [Zhenguo Li](https://scholar.google.com/citations?user=XboZC1AAAAAJ&hl=zh-CN), [James T. Kwok](https://www.cse.ust.hk/~jamesk/) , [Yu Zhang](https://yuzhanghk.github.io/) <br/>
+> [Yunhao Gou*](https://gyhdog99.github.io/), [Kai Chen*](https://kaichen1998.github.io/), [Zhili Liu*](https://scholar.google.com/citations?user=FdR09jsAAAAJ), [Lanqing Hong](https://scholar.google.com/citations?hl=zh-CN&user=2p7x6OUAAAAJ&view_op=list_works&sortby=pubdate), [Xin Jin](https://scholar.google.com.hk/citations?user=EwOxofEAAAAJ&hl=zh-CN), [Zhenguo Li](https://scholar.google.com/citations?user=XboZC1AAAAAJ&hl=zh-CN), [James T. Kwok](https://www.cse.ust.hk/~jamesk/) , [Yu Zhang†](https://yuzhanghk.github.io/) <br/>
+> *Equal contribution †Corresponding Author <br>
 > *Arxiv Preprint, 2025*
 
 
